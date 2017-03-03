@@ -11,8 +11,8 @@
 <img src="screen2.jpg" width="50%"/><br>
 
 
-### Инструкция по установке на CentOS:
-- Для работы приложения потребуется:
+### Инструкция по разворачиванию приложения на CentOS:
+- Для корректного работы приложения установите на сервер следующие пакеты:
 ```
 $ yum install httpd 
 $ yum install php
@@ -21,8 +21,9 @@ $ yum install mysql-connector-python
 ```
 - Убедитесь что Python 2.7 установлен.
 
-- Конфигурация виртуального сервера в Apache
-в папке /etc/httpd/conf.d/ создать файл servername.conf со следующим содержимым:
+- Скофигурируйте файл виртуального сервера Apache:
+
+<code>в папке /etc/httpd/conf.d/ создайте файл servername.conf со следующим содержимым:</code>
 ```
 <VirtualHost *:80>
 ServerName localhost
@@ -96,18 +97,15 @@ CREATE table watch (id int AUTO_INCREMENT primary key NOT NULL,
     projectId int(255))
     DEFAULT CHARACTER SET utf8 COLLATE utf8_bin; 
 ```
-- Поместите проект в папку var/www/.
-- В файле www/html/js/query.js в переменную scriptFolder пропишите адрес вашего сервера http://localhost/cgi-bin
-- В файле www/userconfig.cfg пропишите имя базы, пользователя и пароль.
-- В файле www/html/login.php в блоке
-```<div class="company-name"></div> 
-```добавьте название вашей компании
-
+- Поместите проект в папку <code>var/www/</code>.
+- В файле <code>www/html/js/query.j</code>s в переменную <code>scriptFolder</code> пропишите адрес вашего сервера <code>http://localhost/cgi-bin</code>
+- В файле <code>www/userconfig.cfg</code> пропишите имя базы, пользователя и пароль.
+- В файле <code>www/html/login.php</code> в блоке .company-name добавьте название вашей компании
 - Права директора выдаются напрямую в БД:
 ```
 UPDATE userTable SET priveleges=1 WHERE username="admin";
 ```
-Примеры таблиц:
+`//Примеры таблиц:`
 ```
 userTable
 +----+----------+---------------+----------+----------------------------------+------------+----------------+
@@ -151,9 +149,9 @@ watch
 |  3 | test3@test.ri |         1 |
 +----+---------------+-----------+
 ```
-Вёрстка компонентов:
+`Вёрстка компонентов:`
 
-Post
+`Post`
 ```
   <div class="row home-row">
     <div class="home-col col-md-1" >
@@ -177,7 +175,7 @@ Post
     </div>
   </div>
 ```
-Comment
+`Comment`
 ```
   <div class="row comment">
     <div class="col-md-2"><a href="#">Комментатор</a></div>
@@ -193,7 +191,7 @@ Comment
 </div> 
 ```
 
-Требуется доработка по следующим вопросам:
+### Требуется доработка по следующим вопросам:
 - Не работают переносы строк
 - Нужен профиль пользователя со списком проектов и комментариев
 - Возможность изменять имя и пароль
