@@ -1,5 +1,6 @@
 # Free Project Manager
-<img src="logo.png" height="150"/>
+<img src="logo.png" height="100"/><br>
+
 Простое веб-приложение для публикации проектов и голосования за них.
 
 ### Функциональные возможности:
