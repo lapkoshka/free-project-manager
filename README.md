@@ -1,7 +1,7 @@
 # Free Project Manager
 <img src="logo.png" height="100"/><br>
 
-Простое веб-приложение для публикации проектов и голосования за них.
+Простое веб-приложение для публикации проектов и голосования за них.<br>
 <a href="http://atspot.org/br-projects">Демо</a><br>
 Логин: test@test.ru <br>
 Пароль: 123
