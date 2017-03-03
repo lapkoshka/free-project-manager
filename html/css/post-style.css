@@ -1,0 +1,134 @@
+body {
+    width: 100%
+}
+.post-header:nth-child(1) {
+    margin-top: 80px;
+}
+
+.post-header header {
+    padding: 5px 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.row .voting {
+    padding: 0;
+    height: 150px;
+}
+
+.row {
+    margin-top: 20px;
+}
+.plus,
+.counter,
+.minus {
+    color: gray;
+    display: inline-block;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+.counter{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.plus:hover,
+.counter:hover,
+.minus:hover {
+    color: black;
+}
+
+.plus:active,
+.counter:active,
+.minus:active {
+    color: gold;
+}
+
+.accept-panel::after {
+    content:"";
+    display:block;
+    clear:both;
+} 
+.accept-panel{
+    margin-top: 20px;
+}
+.judge-buttons {
+    width: 30%;
+    float:left;
+    display: none;
+}
+.creator {
+    width: 30%;
+    float:right;
+}
+
+.comment {
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.text-description {
+    word-wrap: break-word;
+}
+
+.text-description textarea {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.fa-pencil-square-o,
+.fa-times {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 1.8rem;
+}
+.fa-pencil-square-o:hover,
+.fa-times:hover {
+    color: gray;
+}
+.fa-pencil-square-o:active,
+.fa-times:active {
+    color: darkred;
+}
+
+.bg-voted {
+    display: none;
+    z-index: 1599;  
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2)
+}
+.voted {
+    z-index: 1700;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 0.2em 0.3em rgba(0,0,0,0.2);
+    overflow: auto;
+}
+
+.voted-for {
+    float: left;
+    width: 48%;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid lightgray;
+}
+
+.voted-against {
+    float: right;
+    width: 48%;
+    height: 100%;
+    text-align: center;
+}
+
+.voted a {
+    display: block;
+}
