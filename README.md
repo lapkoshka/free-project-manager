@@ -58,7 +58,7 @@ GRANT SELECT,INSERT,UPDATE,DELETE on database_name.* to 'database_user'@'localho
 ```
 - Создайте таблицы:
 ```
-USE dataase_name;
+USE database_name;
 CREATE table userTable (id int AUTO_INCREMENT primary key NOT NULL, 
     username varchar(40), 
     login varchar(60), 
@@ -108,7 +108,7 @@ CREATE table watch (id int AUTO_INCREMENT primary key NOT NULL,
 ```
 UPDATE userTable SET priveleges=1 WHERE username="admin";
 ```
-`//Примеры таблиц:`
+Примеры таблиц:
 ```
 userTable
 +----+----------+---------------+----------+----------------------------------+------------+----------------+
@@ -152,9 +152,9 @@ watch
 |  3 | test3@test.ri |         1 |
 +----+---------------+-----------+
 ```
-`Вёрстка компонентов:`
+Вёрстка компонентов:
 
-`Post`
+Post
 ```
   <div class="row home-row">
     <div class="home-col col-md-1" >
@@ -178,7 +178,7 @@ watch
     </div>
   </div>
 ```
-`Comment`
+Comment
 ```
   <div class="row comment">
     <div class="col-md-2"><a href="#">Комментатор</a></div>
