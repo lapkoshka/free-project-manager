@@ -7,20 +7,23 @@
 - Пользователи могут создавать, голосовать и просматривать проекты. А также оставлять в них комментарии.
 - Привелегированные пользователи могут все тоже самое + выносить решения по проектам, отклонять или подтверждать.
 
-<img src="screen1.jpg" width="50%"/><br>
+<img src="screen1.jpg" width="80%"/><br>
 <img src="screen2.jpg" width="50%"/><br>
 
 
-Инструкция по установке на CentOS:
-Для работы приложения потребуется:
-yum install httpd 
-yum install php
-yum install mariadb mariadb-server
-yum install mysql-connector-python
-Так-же убедитесь что установлен, Python 2.7
+### Инструкция по установке на CentOS:
+- Для работы приложения потребуется:
+```
+$ yum install httpd 
+$ yum install php
+$ yum install mariadb mariadb-server
+$ yum install mysql-connector-python
+```
+- Убедитесь что Python 2.7 установлен.
 
-Конфигурация виртуального сервера в Apache
+- Конфигурация виртуального сервера в Apache
 в папке /etc/httpd/conf.d/ создать файл servername.conf со следующим содержимым:
+```
 <VirtualHost *:80>
 ServerName localhost
 ServerAlias localhost
@@ -42,13 +45,15 @@ Options FollowSymLinks
  ErrorLog /var/log/httpd/pm-error.log
  CustomLog /var/log/httpd/pm-access.log combined
 </VirtualHost>
-
-Создайте базу и пользователя в mariadb:
+```
+- Создайте базу и пользователя в mariadb:
+```
 CREATE database database_name;
 CREATE USER 'database_user'@'localhost' IDENTIFIED BY 'database_password';
 GRANT SELECT,INSERT,UPDATE,DELETE on database_name.* to 'database_user'@'localhost';
-
-Создайте таблицы:
+```
+- Создайте таблицы:
+```
 USE dataase_name;
 CREATE table userTable (id int AUTO_INCREMENT primary key NOT NULL, 
     username varchar(40), 
@@ -90,18 +95,20 @@ CREATE table watch (id int AUTO_INCREMENT primary key NOT NULL,
     login varchar(40),
     projectId int(255))
     DEFAULT CHARACTER SET utf8 COLLATE utf8_bin; 
+```
+- Поместите проект в папку var/www/.
+- В файле www/html/js/query.js в переменную scriptFolder пропишите адрес вашего сервера http://localhost/cgi-bin
+- В файле www/userconfig.cfg пропишите имя базы, пользователя и пароль.
+- В файле www/html/login.php в блоке
+```<div class="company-name"></div> 
+```добавьте название вашей компании
 
-Поместите проект в папку var/www/.
-В файле www/html/js/query.js в переменную scriptFolder пропишите http://localhost/cgi-bin
-В файле www/userconfig.cfg пропишите имя базы, пользователя и пароль.
-В файле www/html/login.php в блоке
-<div class="company-name"></div> 
-добавьте название вашей компании
-
-Права директора выдаются напрямую в БД:
+- Права директора выдаются напрямую в БД:
+```
 UPDATE userTable SET priveleges=1 WHERE username="admin";
-
+```
 Примеры таблиц:
+```
 userTable
 +----+----------+---------------+----------+----------------------------------+------------+----------------+
 | id | username | login         | password | session                          | priveleges | ip             |
@@ -143,10 +150,11 @@ watch
 |  2 | test2@test.ru |         1 |
 |  3 | test3@test.ri |         1 |
 +----+---------------+-----------+
-
+```
 Вёрстка компонентов:
 
 Post
+```
   <div class="row home-row">
     <div class="home-col col-md-1" >
       <div class="block"><span><b>2</b><br>votes</span></div>
@@ -168,8 +176,9 @@ Post
       </footer>
     </div>
   </div>
-
+```
 Comment
+```
   <div class="row comment">
     <div class="col-md-2"><a href="#">Комментатор</a></div>
       <div class="col-md-8 text-description">
@@ -182,7 +191,7 @@ Comment
     </div>
   </div>
 </div> 
-
+```
 
 Требуется доработка по следующим вопросам:
 - Не работают переносы строк
