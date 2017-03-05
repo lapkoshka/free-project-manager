@@ -1,34 +1,28 @@
 # Free Project Manager
 <img src="logo.png" height="100"/><br>
-A simple web-application for project publishing and voting for them.  
-Простое веб-приложение для публикации проектов и голосования за них.<br><br>
-<a href="http://atspot.org/br-projects">Демо для ознакомления</a><br>
-Логин: test@test.ru <br>
-Пароль: 123
+A simple web-application for project publishing and voting for them<br><br>
+<a href="http://atspot.org/br-projects">Demo</a><br>
 
-### Функциональные возможности: Functionalities
-- Пользователи могут создавать, голосовать и просматривать проекты. А также оставлять в них комментарии.
-- Привелегированные пользователи могут все тоже самое + выносить решения по проектам, отклонять или подтверждать.
-Users caN create, vote and browse projects. Also they can write comments.
-Privileged users can do the same and make desicions on projects, decline or accept them.
+### Functionalities:
+- Users can create, vote and browse projects. Also they can write comments.
+- Privileged users can do the same and make desicions on projects, decline or accept them.
 
 <img src="screen1.jpg" width="80%"/><br>
 <img src="screen2.jpg" width="50%"/><br>
 
 
-### Инструкция по разворачиванию приложения на CentOS:Deploy on CentOS 
+### Deploy on CentOS 
 
-- Для корректной работы приложения установите на сервер следующие пакеты:
-In order your application works correctly, you should to install above packages
+- In order your application works correctly, you should to install above packages:
 ```
 $ yum install httpd 
 $ yum install php
 $ yum install mariadb mariadb-server
 $ yum install mysql-connector-python
 ```
-- Убедитесь что Python 2.7 установлен.Make sure that python is installed.
-- Скофигурируйте файл виртуального сервера Apache: configure the Apache virtual server
-<code>в папке /etc/httpd/conf.d/ создайте файл servername.conf со следующим содержимым:</code>Create a file ... in folder  with the folliwing content
+- Make sure that Python 2.7 is installed.
+- Configure the Apache virtual server:
+Create a file <code>servername.conf</code> in folder <code> /etc/httpd/conf.d/</code> with the following content:
 ```
 <VirtualHost *:80>
 ServerName localhost
@@ -52,13 +46,13 @@ Options FollowSymLinks
  CustomLog /var/log/httpd/pm-access.log combined
 </VirtualHost>
 ```
-- Создайте базу и пользователя в mariadb: create a database and a user in ...
+- Create a database and a user in MariaDB:
 ```
 CREATE database database_name;
 CREATE USER 'database_user'@'localhost' IDENTIFIED BY 'database_password';
 GRANT SELECT,INSERT,UPDATE,DELETE on database_name.* to 'database_user'@'localhost';
 ```
-- Создайте таблицы: create tables
+- Create tables:
 ```
 USE database_name;
 CREATE table userTable (id int AUTO_INCREMENT primary key NOT NULL, 
@@ -102,15 +96,14 @@ CREATE table watch (id int AUTO_INCREMENT primary key NOT NULL,
     projectId int(255))
     DEFAULT CHARACTER SET utf8 COLLATE utf8_bin; 
 ```
-- Поместите проект в папку <code>var/www/</code>. Put the project into the folder
-- В файле <code>www/html/js/query.j</code>s в переменную <code>scriptFolder</code> пропишите адрес вашего сервера <code>http://localhost/cgi-bin</code> write the address of your server in the variable of the file
-- В файле <code>www/userconfig.cfg</code> пропишите имя базы, пользователя и пароль.write the database name, the username and a password in the file
-- В файле <code>www/html/login.php</code> в блоке .company-name добавьте название вашей компанииAdd   your company name to div 
-- Права директора выдаются напрямую в БД:Admin permissions are given directly in database 
+- Put the project into the folder <code>var/www/</code>.
+- Write the address of your server <code>http://localhost/cgi-bin</code> in the variable <code>scriptFolder</code> of the file <code>www/html/js/query.js</code>
+- Write the database name, the username and a password in the file <code>www/userconfig.cfg</code>.
+- Admin permissions are given directly in database:
 ``` 
 UPDATE userTable SET priveleges=1 WHERE username="admin";
 ```
-Примеры таблиц:
+Table examples:
 ```
 userTable
 +----+----------+---------------+----------+----------------------------------+------------+----------------+
@@ -154,7 +147,7 @@ watch
 |  3 | test3@test.ri |         1 |
 +----+---------------+-----------+
 ```
-Вёрстка компонентов:Layout
+Layout of components:
 Post
 ```
   <div class="row home-row">
