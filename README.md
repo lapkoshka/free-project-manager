@@ -1,6 +1,6 @@
 # Free Project Manager
 <img src="logo.png" height="100"/><br>
-A simple web-application for project publishing and voting for them<br><br>
+A simple web-application for project publishing and voting for them.<br><br>
 <a href="http://atspot.org/br-projects">Demo</a><br>
 
 ### Functionalities:
@@ -22,7 +22,7 @@ $ yum install mysql-connector-python
 ```
 - Make sure that Python 2.7 is installed.
 - Configure the Apache virtual server:
-Create a file <code>servername.conf</code> in folder <code> /etc/httpd/conf.d/</code> with the following content:
+Create a file <code>servername.conf</code> in folder <code>/etc/httpd/conf.d/</code> with the following content:
 ```
 <VirtualHost *:80>
 ServerName localhost
@@ -147,7 +147,7 @@ watch
 |  3 | test3@test.ri |         1 |
 +----+---------------+-----------+
 ```
-Layout of components:
+Layout of components:<br>
 Post
 ```
   <div class="row home-row">
