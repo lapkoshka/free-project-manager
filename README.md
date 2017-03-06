@@ -25,25 +25,27 @@ $ yum install mysql-connector-python
 Create a file <code>servername.conf</code> in folder <code>/etc/httpd/conf.d/</code> with the following content:
 ```
 <VirtualHost *:80>
-ServerName localhost
-ServerAlias localhost
-DocumentRoot /var/www/html
+ ServerName project-manager.atspot.ru
+ ServerAlias www.project-manager.atspot.ru
+ DocumentRoot /web/project-manager.atspot.ru/www/
 
-<Directory /var/www/cgi-bin/>
- Options +ExecCGI
- AddHandler cgi-script .py
+ScriptAlias /cgi-bin/ "/web/project-manager.atspot.ru/cgi-bin/"
+
+<Directory /web/project-manager.atspot.ru/cgi-bin>
+Options +ExecCGI
+AddHandler cgi-script .py
  Options FollowSymLinks
  AllowOverride All
  Require all granted
 </Directory>
-...
-<Directory /var/www/html>
-Options FollowSymLinks
+
+<Directory /web/project-manager.atspot.ru/www/>
+ Options FollowSymLinks
  AllowOverride All
  Require all granted
- </Directory>
- ErrorLog /var/log/httpd/pm-error.log
- CustomLog /var/log/httpd/pm-access.log combined
+</Directory>
+ ErrorLog /web/project-manager.atspot.ru/logs/error.log
+ CustomLog /web/project-manager.atspot.ru/logs/access.log combined
 </VirtualHost>
 ```
 - Create a database and a user in MariaDB:
