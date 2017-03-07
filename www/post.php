@@ -38,7 +38,7 @@
             <div class="col-md-9 accept-panel">
               <div class="judge-buttons" id="judge">
                 <button type="button" class="btn btn-sm btn-success" id="success">Success</button>
-                <button type="button" class="btn btn-sm btn-danger" id="deny">Deny</button>
+                <button type="button" class="btn btn-sm btn-danger" id="deny">Decline</button>
               </div>
               <div class="creator">            
                 <span>Created by <a href="#" id="author"></a></span>
