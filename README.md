@@ -12,7 +12,8 @@ A simple web-application for project publishing and voting for them.<br><br>
 
 
 ### Deploy on CentOS 
-
+<code>git clone https://github.com/Lapaboy/free-project-manager . </code>
+- Dont't forget set <code>chmod 775 </code> for scripts in cgi-bin folder.
 - In order your application works correctly, you should to install above packages:
 ```
 $ yum install httpd 
