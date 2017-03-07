@@ -1,6 +1,6 @@
 "use strict";
 function query (scriptName, method, data) {
-    let scriptFolder = "http://localhost/cgi-bin/"
+    let scriptFolder = "http://project-manager.atspot.ru/cgi-bin/"
     return new Promise (function (resolve, reject) {
         let xhr = new XMLHttpRequest();
         xhr.open(method, scriptFolder + scriptName);
