@@ -45,10 +45,9 @@ if cursor.rowcount:
 	if cursor.rowcount:
 			for id, vote in cursor:
 				vote = vote
-
 			#If different, then update	
-			if vote != value:
-				cursor.execute('UPDATE rating SET vote="%s" WHERE projectId="%s" and login="%s"' % (value, projectId, login))
+			if (vote + value) == 0:
+				cursor.execute('DELETE FROM rating WHERE projectId="%s" and login="%s"' % (projectId, login))
 				mariadb_connection.commit()
 				print json.dumps({"status": "true", "rating" : update()})
 			else:
