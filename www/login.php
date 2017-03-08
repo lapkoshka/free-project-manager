@@ -26,8 +26,8 @@
                 <p class="message">Already registered? <br><a href="#" id="signIn">Sign In</a></p>
             </form>
             <form class="login-form">
-                <input type="text" placeholder="e-mail" id="username" /><br>
-                <input type="password" placeholder="password" id="password"/><br>
+                <input type="text" placeholder="e-mail" id="username" value="test@test.ru" /><br>
+                <input type="password" placeholder="password" id="password" value="123"/><br>
                 <button id="submit">login</button>
                 <p class="message" >Not registered? <br><a href="#" id="createAcc">Create an account</a></p>
             </form>
