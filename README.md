@@ -1,7 +1,7 @@
 # Free Project Manager
 <img src="logo.png" height="100"/><br>
 A simple web-application for project publishing and voting for them.<br><br>
-<a href="http://atspot.org/br-projects">Demo</a><br>
+<a href="http://project-manager.atspot.ru" target="blank">Demo</a><br>
 
 ### Functionalities:
 - Users can create, vote and browse projects. Also they can write comments.
