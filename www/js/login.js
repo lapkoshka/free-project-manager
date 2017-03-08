@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userdata["login"] = username.value;
         userdata["password"] = password.value;
         if (username.value === "" || password.value === "") {
-            addMessageOnLoginForm("Please fill out fields", "red");
+            addMessageOnLoginForm("Please fill out fields", "white");
         } else {
             logIn(userdata);
         }

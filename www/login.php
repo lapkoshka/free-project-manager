@@ -12,28 +12,28 @@
     <script src="./js/register.js"></script>
   </head>
   <body>
-        <div class="company-name">
-            <span>Brilliant Project Manager</span>
-        </div>
     <div class="login-page">
         <div class="form">
+            <div class="logo">
+                <img id="logo" src="http://atspot.ru/images/pm-logo.png" />
+            </div>
             <form class="register-form">
-                <input type="text" placeholder="email address" id="regemail"/>
-                <input type="text" placeholder="nickname" id="regname"/>
-                <input type="password" placeholder="password" id="regpassword"/>
-                <input type="password" placeholder="repeat pass" id="regpassword2" />
+                <input type="text" placeholder="email address" id="regemail"/><br>
+                <input type="text" placeholder="nickname" id="regname"/><br>
+                <input type="password" placeholder="password" id="regpassword"/><br>
+                <input type="password" placeholder="repeat pass" id="regpassword2" /><br>
                 <button id="register">create</button>
-                <p class="message">Already registered? <a href="#" id="signIn">Sign In</a></p>
+                <p class="message">Already registered? <br><a href="#" id="signIn">Sign In</a></p>
             </form>
             <form class="login-form">
-                <input type="text" placeholder="e-mail" id="username" />
-                <input type="password" placeholder="password" id="password"/>
+                <input type="text" placeholder="e-mail" id="username" /><br>
+                <input type="password" placeholder="password" id="password"/><br>
                 <button id="submit">login</button>
-                <p class="message" >Not registered? <a href="#" id="createAcc">Create an account</a></p>
+                <p class="message" >Not registered? <br><a href="#" id="createAcc">Create an account</a></p>
             </form>
         </div>                    
     </div>
-        <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
             createAcc.addEventListener("click", function () {
                 document.querySelector(".form .login-form").style.display = "none";
@@ -44,6 +44,9 @@
                 document.querySelector(".form .register-form").style.display = "none";
             })
         })
-        </script>
+        logo.onload = function () {
+            document.querySelector(".login-page").style.display = "block";
+        }
+    </script>
   <body>
 </html>

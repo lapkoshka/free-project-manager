@@ -26,7 +26,7 @@ function registration (userdata) {
             verificaton(JSON.parse(data), "reg");
         })
         .catch ( (error) => {
-            addMessageOnLoginForm("Uncorrect username", "red");
+            addMessageOnLoginForm("Uncorrect username", "white");
         })
 }
 
