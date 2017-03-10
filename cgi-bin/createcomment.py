@@ -20,6 +20,7 @@ data = cgi.FieldStorage()
 data = json.loads(data.value)
 
 text = cgi.escape(data["text"]).replace('"', '\\"')
+text = text.replace('\n', "<br>")
 session = cgi.escape( data["session"]) 
 projectId = cgi.escape(data["projectId"]) 
 
