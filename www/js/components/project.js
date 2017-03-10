@@ -71,10 +71,11 @@ function addPost (data) {
 
 function cutDescription(text) {
     let length = 50;
-    if (text.length > length) {
+    if (/<br>/.test(text)) {
+        return text.split('<br>')[0]
+    } else if (text.length > length) {
         return text.substr(0,length) + "..."
-    }
-    else {
+    } else {
         return text
     }
 }

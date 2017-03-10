@@ -21,6 +21,7 @@ data = json.loads(data.value)
 
 name = cgi.escape(data["name"]).replace('"', '\\"')
 description = cgi.escape(data["description"]).replace('"', '\\"')
+description = description.replace('\n', "<br>")
 session = cgi.escape(data["session"])
 
 print ("Content-type: application/json \r\n\r\n")
