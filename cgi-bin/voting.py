@@ -45,7 +45,7 @@ if cursor.rowcount:
 	if cursor.rowcount:
 			for id, vote in cursor:
 				vote = vote
-			#If different, then update	
+			#If sum both arguments == 0, it means that user want to reset vote
 			if (vote + value) == 0:
 				cursor.execute('DELETE FROM rating WHERE projectId="%s" and login="%s"' % (projectId, login))
 				mariadb_connection.commit()
